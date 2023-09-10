@@ -78,7 +78,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 # Create a Streamlit app
-st.title("Choose Exactly 3 Variables")
+st.title("Choose Exactly 3 Fixed Variables")
 
 # Define the list of available variables
 variables = ["alpha","KK","b","c","gamma"]
