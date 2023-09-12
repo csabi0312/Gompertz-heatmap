@@ -4,6 +4,7 @@ from scipy.integrate import quad
 from scipy.optimize import minimize
 import matplotlib.pyplot as plt
 import copy
+from stqdm import stqdm
 
 def fGGM(x, a, b, c, gamma):
     return (np.exp(-c * x) * (1 + (a * (-1 + np.exp(b * x)) * gamma) / b) ** (-((1 + gamma) / gamma)) * (c * (b - a * gamma) + a * np.exp(b * x) * (b + c * gamma))) / b
@@ -51,7 +52,7 @@ def heatmap_plot(fixed_vars=[0,1,0,1,1], fixed_values=[3.7303227240317895e-06, 3
     
     heatmap = np.zeros((len(run1_range), len(run2_range)))
     
-    for i, run1 in enumerate(run1_range):
+    for i, run1 in stqdm(enumerate(run1_range)):
         for j, run2 in enumerate(run2_range):
             
             var_values[running_vars_index[0]]=run1
@@ -125,9 +126,9 @@ else:
 st.title("Enter 3 Numerical Values for the fixed parameters")
 
 # Create input boxes for numerical values
-value1 = st.number_input(fixed_variables_names[0], value=3.7303227240317895e-06, format="%g")
-value2 = st.number_input(fixed_variables_names[1], value=3.925085806440573e-06,format="%g")
-value3 = st.number_input(fixed_variables_names[2], value=0.34537434850401993,format="%g")
+value1 = st.number_input(fixed_variables_names[0], value=0.000000001734633, format="%g")
+value2 = st.number_input(fixed_variables_names[1], value=0.0006087902,format="%g")
+value3 = st.number_input(fixed_variables_names[2], value=0.5625251,format="%g")
 
 st.title("Enter the range for the running parameters")
 
